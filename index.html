@@ -1,5 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
+<meta charset="utf-8" />
     <title>introduction</title>
     <style>
         @font-face {
@@ -81,52 +83,9 @@
 <p><span>Небольшой стори тайм:</span> <br><br>Закончила 11 классов в этом году, успешно сдала ЕГЭ по математике и информатике и поступила в МТУСИ на факультет ИТ. Я выбрала для себя заочное обучение, потому что очень хочу как можно больше времени уделять работе и практике, над чем, собственно говоря, сейчас плотно работаю. <br><br>Около года я активно занималась версткой. Сначала только для себя, изучала сорвеменные стандарты и технологии. Освоила responsive-верстку на HTML/CSS, работала с системами управления MODx и Wordpress, для верстки в основном использовала фреймворк Twitter Bootstrap, также неплохо освоила дизайн продающих страниц и графические редакторы. В итоге сделала пару проектов для знакомых, после чего поняла, что не хочу останавливаться на создании статических страниц и использовать библиотеки скриптов и готовые CMS. Так я пришла к изучению PHP. Изначально моей целью было создать собственную CMS, без лишних функций и примочек, чтобы все в ней было сделано исключительно для меня. Я окунулась с головой в серверное программироавние и это меня крайне увлекло. <br><br>Ваша стажировка мне крайне интересна, потому что я хочу получить бесценный опыт реальной работы. Пусть я еще, возможно, не доросла до оплачиваемого даже junior developer-а, однако, я очень быстро учусь и намного приятнее было бы делать это не в одиночку) </p>
 <div class="el"><img src="kiKByR9dT.png"></div>
 
-<?php
+<h1>Hello, world!</h1><br><br>
+<h3>1. Простой калькулятор на php. </h3><br>
 
-echo "<h1>Hello, world!</h1><br><br>";
-echo "<h3>1. Простой калькулятор на php. </h3><br>";
-if($_POST['submit'])
-{
-    $a=(int) $_POST['num1'];
-    $b=(int) $_POST['num2'];
-    $p=$_POST['operation'];
-    $c;
-    if($p=='+')
-        $c=$a+$b;
-    if($p=='-')
-        $c=$a-$b;
-    if($p=='*')
-        $c=$a*$b;
-    if($p=='/')
-    {
-        if($b==0)
-            echo "Наймите репетитора по математике";
-        else  $c=$a/$b;
-    }
-    if($p=='^')
-        $c=pow($a,$b);
-
-}
-
-?>
-<form action="" method="post">
-    <input type="textbox" name="num1" required>
-
-    <select name="operation" required>
-        <option value ="+">+</option>
-        <option value ="-">-</option>
-        <option value ="*">*</option>
-        <option value ="/">/</option>
-        <option value ="^">^</option>
-    </select>
-
-    <input type="textbox" name="num2" required>
-    <input type="submit" name="submit">
-</form>
-<?php
-echo $c;
-echo "<br><br>"
-?>
 
 <span>Исходный код: </span>
 
@@ -183,54 +142,6 @@ echo "<br><br>"
     Представить решение задачи с помощью одной функции.</p><br>
 
 
-
-
-<?php
-session_start();
-
-function speed($s, $t, $val){
-    $speed[1] = $s / $t . " км/ч";
-    $speed[2] = $speed[1] / 3.6 . " м/с";
-    return $speed[$val];
-}
-
-if(!empty($_POST['submit'])){
-    if($_POST['S'] <= 0 || $_POST['t'] <= 0){
-        $_SESSION['error'] = '<strong><em>Число должно быть положительным!</em></strong>';
-        header("Location: index.php");
-        exit();
-    }else{
-        $_SESSION['res'] = "<strong><em>" .speed($_POST['S'], $_POST['t'], $_POST['val']). "</em></strong>";
-        header("Location: index.php");
-        exit();
-    }
-}
-?>
-
-<span>Рассчет скорости</span>
-
-<?php
-echo $_SESSION['error'];
-echo $_SESSION['res'];
-session_unset();
-session_destroy();
-?>
-<form method="post" action="">
-    <table>
-        <tr>
-            <td>Введите расстояние (км):</td> <td><input type="text" name="S" /></td>
-        </tr>
-        <tr>
-            <td>Введите время движения(ч):</td> <td><input type="text" name="t" /></td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="val" value="1" checked="checked" /> км/ч</td> <td><input type="radio" name="val" value="2" /> м/с</td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" name="submit" value="Рассчитать" /></td>
-        </tr>
-    </table>
-</form>
 
 
 
